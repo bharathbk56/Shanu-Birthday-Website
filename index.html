@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050b20" />
+  <title>Happy Birthday, Shanu 💙</title>
+  <style>
+    :root {
+      --night: #030718;
+      --navy: #071432;
+      --blue: #168bff;
+      --cyan: #7ce7ff;
+      --ice: #e9f5ff;
+      --muted: #a9bddc;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--ice);
+      background:
+        radial-gradient(ellipse at 50% 12%, rgba(15, 75, 160, .25), transparent 48%),
+        radial-gradient(ellipse at 80% 70%, rgba(0, 150, 255, .10), transparent 40%),
+        linear-gradient(180deg, #030718 0%, #07132d 48%, #030718 100%);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    #sky { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+    .grain {
+      position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: .11;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+    }
+    .wrap { position: relative; z-index: 2; }
+    nav {
+      max-width: 1120px; margin: auto; padding: 26px 26px;
+      display: flex; justify-content: space-between; align-items: center;
+      color: #bdd9ff; font-size: .82rem; letter-spacing: .14em; text-transform: uppercase;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 750; }
+    .brand-heart { color: var(--cyan); text-shadow: 0 0 15px #168bff; font-size: 1.2rem; }
+    .nav-note { color: #6f8cb7; letter-spacing: .08em; }
+    .hero {
+      min-height: 83vh; display: grid; place-items: center; text-align: center;
+      padding: 70px 22px 110px; position: relative;
+    }
+    .hero-inner { max-width: 850px; animation: riseIn 1.1s ease both; }
+    .eyebrow {
+      display: inline-flex; gap: 9px; align-items: center; border: 1px solid rgba(106, 190, 255, .3);
+      background: rgba(12, 39, 83, .45); padding: 9px 15px; border-radius: 999px;
+      color: #a8d8ff; text-transform: uppercase; font-size: .72rem; letter-spacing: .18em;
+      box-shadow: 0 0 28px rgba(0, 119, 255, .08);
+    }
+    .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: #69dfff; box-shadow: 0 0 12px #168bff; }
+    h1 {
+      font-size: clamp(3.1rem, 9vw, 7.2rem); line-height: .98; letter-spacing: -.065em;
+      margin: 28px 0 20px; font-weight: 850;
+      text-shadow: 0 0 35px rgba(28, 134, 255, .2);
+    }
+    h1 span {
+      display: block; color: #8edcff;
+      background: linear-gradient(100deg, #f3fbff 4%, #a8e7ff 35%, #499dff 72%, #d8f6ff 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      filter: drop-shadow(0 0 20px rgba(31, 151, 255, .25));
+    }
+    .subtitle { max-width: 540px; margin: 0 auto; color: #a9bddc; font-size: clamp(1rem, 2vw, 1.17rem); line-height: 1.8; }
+    .cta {
+      margin-top: 35px; display: inline-flex; align-items: center; gap: 12px; padding: 14px 22px;
+      border: 1px solid rgba(112, 202, 255, .7); border-radius: 999px; color: white;
+      background: linear-gradient(120deg, rgba(17, 93, 190, .55), rgba(16, 35, 83, .8));
+      box-shadow: 0 0 22px rgba(0, 119, 255, .2), inset 0 0 18px rgba(81, 183, 255, .07);
+      text-decoration: none; font-weight: 700; cursor: pointer; transition: transform .25s, box-shadow .25s;
+    }
+    .cta:hover { transform: translateY(-3px); box-shadow: 0 0 32px rgba(0, 145, 255, .35); }
+    .down { display: block; margin-top: 54px; color: #6f8cb7; font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; }
+    .down::after { content: "↓"; display: block; color: #74d8ff; font-size: 1.3rem; margin-top: 10px; animation: bob 1.8s infinite; }
+    section { padding: 72px 22px; }
+    .section-inner { max-width: 850px; margin: auto; }
+    .section-label { text-transform: uppercase; color: #67caff; letter-spacing: .22em; font-size: .72rem; font-weight: 800; text-align: center; }
+    h2 { text-align: center; font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -.045em; margin: 15px 0 24px; }
+    .intro { text-align: center; color: #9db4d7; line-height: 1.8; max-width: 620px; margin: 0 auto 34px; }
+
+    .portrait-section { padding-top: 12px; }
+    .portrait-frame {
+      max-width: 680px; margin: 32px auto 0; padding: 10px;
+      border: 1px solid rgba(100, 190, 255, .45); border-radius: 26px;
+      background: linear-gradient(135deg, rgba(20, 80, 160, .35), rgba(7, 16, 43, .8));
+      box-shadow: 0 0 42px rgba(0, 119, 255, .16);
+    }
+    .portrait-frame img {
+      display: block; width: 100%; height: auto; max-height: 560px;
+      object-fit: contain; border-radius: 18px; background: #190a32;
+    }
+    .portrait-caption { text-align: center; color: #9fc8f1; margin-top: 17px; font-size: .9rem; letter-spacing: .04em; }
+    .letter-card {
+      position: relative; overflow: hidden; border: 1px solid rgba(100, 183, 255, .25);
+      border-radius: 26px; padding: clamp(25px, 5vw, 48px);
+      background: linear-gradient(145deg, rgba(12, 34, 74, .86), rgba(5, 14, 37, .92));
+      box-shadow: 0 24px 80px rgba(0, 0, 0, .25), 0 0 45px rgba(0, 105, 255, .08);
+    }
+    .letter-card::before {
+      content: "♥"; position: absolute; right: -14px; top: -45px; font-size: 180px; color: rgba(38, 146, 255, .045);
+      transform: rotate(12deg); pointer-events: none;
+    }
+    .letter-top { color: #79d7ff; letter-spacing: .12em; font-size: .75rem; text-transform: uppercase; margin-bottom: 25px; }
+    .letter-card p { position: relative; color: #c5d5ed; font-size: 1.04rem; line-height: 1.95; margin: 0 0 18px; }
+    .signoff { color: #f2f8ff !important; margin-top: 28px !important; }
+    .signoff strong { color: #7fdcff; font-weight: 750; }
+    .card-section { text-align: center; }
+    .digital-card {
+      max-width: 650px; margin: 35px auto 0; padding: 44px 28px; border-radius: 26px;
+      border: 1px solid rgba(103, 203, 255, .4);
+      background: radial-gradient(ellipse at 50% 0%, rgba(32, 133, 255, .2), transparent 65%), rgba(5, 16, 43, .82);
+      box-shadow: 0 0 55px rgba(0, 119, 255, .12); transition: transform .5s, border-color .5s;
+    }
+    .digital-card.open { border-color: rgba(139, 226, 255, .85); transform: translateY(-4px); box-shadow: 0 0 65px rgba(0, 145, 255, .2); }
+    .card-symbol { font-size: 3rem; color: #73d7ff; text-shadow: 0 0 25px #168bff; animation: heartbeat 2.2s infinite; }
+    .digital-card h3 { font-size: clamp(1.7rem, 4vw, 2.5rem); margin: 18px 0 12px; }
+    .digital-card p { color: #9fb8dc; line-height: 1.8; margin: 0 auto; max-width: 440px; }
+    .reveal { margin-top: 25px; }
+    #hiddenWish { display: none; margin-top: 25px; color: #cceeff; line-height: 1.9; animation: riseIn .7s ease both; }
+    #hiddenWish.show { display: block; }
+
+    .ig-section { text-align: center; padding-top: 28px; }
+    .ig-card {
+      max-width: 620px; margin: 26px auto 0; padding: 30px 22px;
+      border: 1px solid rgba(105, 196, 255, .34); border-radius: 24px;
+      background: linear-gradient(145deg, rgba(9, 30, 72, .82), rgba(5, 13, 35, .92));
+      box-shadow: 0 0 38px rgba(0, 119, 255, .09);
+    }
+    .ig-card p { color: #9db7da; line-height: 1.8; margin: 0 auto 20px; max-width: 430px; }
+    .ig-link {
+      position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 15px 22px; border-radius: 999px; color: #effaff; text-decoration: none; font-weight: 800;
+      border: 1px solid rgba(111, 214, 255, .82);
+      background: linear-gradient(110deg, rgba(14, 103, 218, .62), rgba(25, 46, 105, .88));
+      box-shadow: 0 0 14px rgba(0, 136, 255, .25), inset 0 0 14px rgba(112, 214, 255, .08);
+      animation: neonPulse 2s ease-in-out infinite; transition: transform .25s, box-shadow .25s;
+    }
+    .ig-link:hover, .ig-link:focus-visible {
+      transform: translateY(-3px) scale(1.025); box-shadow: 0 0 30px rgba(45, 169, 255, .5);
+      outline: none;
+    }
+    .ig-link .ig-arrow { display: inline-block; animation: arrowNudge 1.3s ease-in-out infinite; }
+    @keyframes neonPulse {
+      0%, 100% { box-shadow: 0 0 12px rgba(0, 136, 255, .22), 0 0 0 0 rgba(69, 181, 255, 0); }
+      50% { box-shadow: 0 0 26px rgba(0, 153, 255, .42), 0 0 0 5px rgba(69, 181, 255, .05); }
+    }
+    @keyframes arrowNudge { 0%,100% { transform: translateX(0); } 50% { transform: translateX(4px); } }
+
+    /* Extra phone refinements */
+    img { max-width: 100%; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .cta, .ig-link { min-height: 48px; touch-action: manipulation; }
+    @media (max-width: 600px) {
+      body { font-size: 15px; }
+      nav { padding: 16px 15px; gap: 10px; }
+      .brand { font-size: .68rem; gap: 7px; letter-spacing: .08em; }
+      .hero { min-height: 76svh; padding: 48px 18px 66px; }
+      .eyebrow { font-size: .62rem; letter-spacing: .12em; padding: 8px 11px; }
+      h1 { font-size: clamp(2.75rem, 13vw, 4.2rem); line-height: 1.02; margin: 23px 0 17px; }
+      .subtitle { font-size: .98rem; line-height: 1.75; max-width: 34rem; }
+      .cta { padding: 13px 17px; font-size: .92rem; gap: 8px; }
+      .down { margin-top: 38px; }
+      section { padding: 48px 16px; }
+      .section-label { font-size: .64rem; letter-spacing: .16em; line-height: 1.6; }
+      h2 { font-size: clamp(1.85rem, 8vw, 2.6rem); line-height: 1.12; margin: 12px 0 18px; }
+      .intro { font-size: .94rem; line-height: 1.75; margin-bottom: 25px; }
+      .portrait-section { padding-top: 0; }
+      .portrait-frame { padding: 6px; border-radius: 19px; margin-top: 23px; }
+      .portrait-frame img { border-radius: 13px; max-height: 68svh; }
+      .portrait-caption { font-size: .82rem; line-height: 1.6; padding: 0 8px; }
+      .letter-card { padding: 23px 19px; border-radius: 18px; }
+      .letter-top { font-size: .66rem; line-height: 1.6; letter-spacing: .1em; margin-bottom: 20px; }
+      .letter-card p { font-size: .97rem; line-height: 1.85; overflow-wrap: anywhere; }
+      .letter-card blockquote { margin: 20px 0 !important; padding-left: 14px !important; font-size: .95rem; }
+      .digital-card { padding: 32px 19px; border-radius: 20px; margin-top: 25px; }
+      .digital-card h3 { font-size: 1.65rem; line-height: 1.2; }
+      .digital-card p, #hiddenWish { font-size: .94rem; line-height: 1.8; }
+      .ig-card { padding: 24px 17px; border-radius: 20px; }
+      .ig-card p { font-size: .94rem; line-height: 1.75; }
+      .ig-link { width: 100%; max-width: 340px; padding: 14px 15px; font-size: .9rem; gap: 7px; }
+      footer { padding: 26px 18px 36px; line-height: 1.8; }
+    }
+    @media (max-width: 360px) {
+      .brand { font-size: .61rem; }
+      .hero { padding-left: 14px; padding-right: 14px; }
+      h1 { font-size: 2.55rem; }
+      .letter-card { padding: 20px 16px; }
+      .ig-link { font-size: .83rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) { .ig-link, .ig-link .ig-arrow { animation: none; } }
+    footer { text-align: center; padding: 30px 20px 48px; color: #58749e; font-size: .78rem; letter-spacing: .04em; }
+    footer span { color: #67caff; }
+    .spark { display: inline-block; color: #65cfff; animation: twinkle 2s infinite; }
+    @keyframes riseIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+    @keyframes heartbeat { 0%,100% { transform: scale(1); } 10% { transform: scale(1.1); } 20% { transform: scale(1); } 30% { transform: scale(1.07); } 40% { transform: scale(1); } }
+    @keyframes twinkle { 0%,100% { opacity: .45; } 50% { opacity: 1; text-shadow: 0 0 12px #168bff; } }
+    @media (max-width: 600px) {
+      nav { padding: 20px 18px; font-size: .68rem; }
+      .nav-note { display: none; }
+      .hero { min-height: 78vh; padding-top: 55px; }
+      section { padding: 58px 17px; }
+  
+    .portrait-section { padding-top: 12px; }
+    .portrait-frame {
+      max-width: 680px; margin: 32px auto 0; padding: 10px;
+      border: 1px solid rgba(100, 190, 255, .45); border-radius: 26px;
+      background: linear-gradient(135deg, rgba(20, 80, 160, .35), rgba(7, 16, 43, .8));
+      box-shadow: 0 0 42px rgba(0, 119, 255, .16);
+    }
+    .portrait-frame img {
+      display: block; width: 100%; height: auto; max-height: 560px;
+      object-fit: contain; border-radius: 18px; background: #190a32;
+    }
+    .portrait-caption { text-align: center; color: #9fc8f1; margin-top: 17px; font-size: .9rem; letter-spacing: .04em; }
+    .letter-card { border-radius: 20px; }
+    }
+
+    /* Extra phone refinements */
+    img { max-width: 100%; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .cta, .ig-link { min-height: 48px; touch-action: manipulation; }
+    @media (max-width: 600px) {
+      body { font-size: 15px; }
+      nav { padding: 16px 15px; gap: 10px; }
+      .brand { font-size: .68rem; gap: 7px; letter-spacing: .08em; }
+      .hero { min-height: 76svh; padding: 48px 18px 66px; }
+      .eyebrow { font-size: .62rem; letter-spacing: .12em; padding: 8px 11px; }
+      h1 { font-size: clamp(2.75rem, 13vw, 4.2rem); line-height: 1.02; margin: 23px 0 17px; }
+      .subtitle { font-size: .98rem; line-height: 1.75; max-width: 34rem; }
+      .cta { padding: 13px 17px; font-size: .92rem; gap: 8px; }
+      .down { margin-top: 38px; }
+      section { padding: 48px 16px; }
+      .section-label { font-size: .64rem; letter-spacing: .16em; line-height: 1.6; }
+      h2 { font-size: clamp(1.85rem, 8vw, 2.6rem); line-height: 1.12; margin: 12px 0 18px; }
+      .intro { font-size: .94rem; line-height: 1.75; margin-bottom: 25px; }
+      .portrait-section { padding-top: 0; }
+      .portrait-frame { padding: 6px; border-radius: 19px; margin-top: 23px; }
+      .portrait-frame img { border-radius: 13px; max-height: 68svh; }
+      .portrait-caption { font-size: .82rem; line-height: 1.6; padding: 0 8px; }
+      .letter-card { padding: 23px 19px; border-radius: 18px; }
+      .letter-top { font-size: .66rem; line-height: 1.6; letter-spacing: .1em; margin-bottom: 20px; }
+      .letter-card p { font-size: .97rem; line-height: 1.85; overflow-wrap: anywhere; }
+      .letter-card blockquote { margin: 20px 0 !important; padding-left: 14px !important; font-size: .95rem; }
+      .digital-card { padding: 32px 19px; border-radius: 20px; margin-top: 25px; }
+      .digital-card h3 { font-size: 1.65rem; line-height: 1.2; }
+      .digital-card p, #hiddenWish { font-size: .94rem; line-height: 1.8; }
+      .ig-card { padding: 24px 17px; border-radius: 20px; }
+      .ig-card p { font-size: .94rem; line-height: 1.75; }
+      .ig-link { width: 100%; max-width: 340px; padding: 14px 15px; font-size: .9rem; gap: 7px; }
+      footer { padding: 26px 18px 36px; line-height: 1.8; }
+    }
+    @media (max-width: 360px) {
+      .brand { font-size: .61rem; }
+      .hero { padding-left: 14px; padding-right: 14px; }
+      h1 { font-size: 2.55rem; }
+      .letter-card { padding: 20px 16px; }
+      .ig-link { font-size: .83rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="sky" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="wrap">
+    <nav>
+      <div class="brand"><span class="brand-heart">♥</span> A little blue magic</div>
+      <div class="nav-note">Made with care · for Shanu</div>
+    </nav>
+
+    <main>
+      <header class="hero">
+        <div class="hero-inner">
+          <div class="eyebrow"><span class="dot"></span> October 12 · A special day</div>
+          <h1>Happy Birthday,<span>Beautiful 💙</span></h1>
+          <p class="subtitle">Tonight, let the little blue hearts do the talking. Wishing you a day filled with gentle moments, bright smiles, and all the happiness you deserve.</p>
+          <a class="cta" href="#birthday-letter">A little note for you <span aria-hidden="true">↘</span></a>
+          <span class="down">Scroll into the blue</span>
+        </div>
+      </header>
+
+      <section class="portrait-section" id="little-moon">
+        <div class="section-inner">
+          <div class="section-label">A little moonlit moment</div>
+          <h2>A picture just for you.</h2>
+          <div class="portrait-frame">
+            <img src="shanu-moon-portrait.png" alt="Illustration of a woman looking toward a glowing blue moon" />
+          </div>
+          <p class="portrait-caption">A little moonlight, a little blue magic. 💙🌙</p>
+        </div>
+      </section>
+
+      <section id="birthday-letter">
+        <div class="section-inner">
+          <div class="section-label"><span class="spark">✦</span> A note from the heart <span class="spark">✦</span></div>
+          <h2>A small message for you.</h2>
+          <p class="intro">Some wishes don't need anything in return. They are simply meant to make someone's day a little brighter.</p>
+          <article class="letter-card">
+            <div class="letter-top">A small message for you · from Bharath</div>
+            <p>Happy Birthday, Shanu. 💙🌙</p>
+            <p>No matter how much things have changed between us, you'll always hold a special place in my heart. I wish things had turned out differently, that we had understood each other a little better. I tried my best because losing you was never something my heart was prepared for.</p>
+            <p>Someday, when you look back at us, you'll remember not just how things ended, but also the little moments that made us happy, the love we shared, and how much we once meant to each other. Some memories still hurt, not because I regret them, but because they were once the moments I wished would last forever. 💙🌙</p>
+            <blockquote style="position:relative; margin: 24px 0; padding: 5px 0 5px 20px; border-left: 2px solid #55bfff; color: #aee7ff; line-height: 1.95; font-style: italic;">
+              “Maybe one day you'll realize<br>
+              I wasn't fighting against you;<br>
+              I was fighting to make you understand<br>
+              that pain I could explain.” 💙
+            </blockquote>
+            <p>But today, I just want you to smile. I genuinely wish you endless happiness, peace, and beautiful moments. Even if I can't be beside you anymore, I'll always be grateful for the memories we shared and will continue wishing the best for you.</p>
+            <p><strong style="color:#eaf7ff;">You were once my favourite dream, and even though life chose a different ending for us, I'll always be grateful that you were a part of my story.</strong></p>
+            <p>Happy Birthday once again, Shanu. Keep smiling and shining. You deserve all the happiness in the world. 💙✨</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="card-section" id="surprise">
+        <div class="section-inner">
+          <div class="section-label">One last little surprise</div>
+          <h2>A wish wrapped in blue.</h2>
+          <p class="intro">Tap the card and let the final birthday wish unfold.</p>
+          <div class="digital-card" id="digitalCard">
+            <div class="card-symbol">♥</div>
+            <h3>For your special day</h3>
+            <p>May your next chapter be softer, brighter, and full of moments that make you glad to be exactly where you are.</p>
+            <button class="cta reveal" id="revealBtn" type="button">Open your birthday card <span aria-hidden="true">✧</span></button>
+            <div id="hiddenWish" aria-live="polite">
+              <strong>Happy Birthday, Shanu! 💙</strong><br>
+              May life surprise you with good news, warm friendships, brave new beginnings, and countless little reasons to smile. Keep being wonderfully you.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+      <section class="ig-section" id="little-surprise">
+        <div class="section-inner">
+          <div class="section-label">A message I wanted to share</div>
+          <h2>A reel that says what words can't.</h2>
+          <div class="ig-card">
+            <p>I found this reel and wanted to share it with you. Maybe it expresses a few feelings that are difficult to put into words. 💙</p>
+            <a class="ig-link" href="https://www.instagram.com/reel/DaDB55vpE0e/?rpxt=MWl2bWgyYmRvc3pqNQ==" target="_blank" rel="noopener noreferrer" aria-label="Watch the emotional Instagram reel">
+              <span aria-hidden="true">✧</span> A reel I'd like you to watch <span class="ig-arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    <footer>Created with care by <span>Bharath</span> · A little blue wish for Shanu <span>♥</span></footer>
+  </div>
+
+  <script>
+    (() => {
+      const canvas = document.getElementById('sky');
+      const ctx = canvas.getContext('2d');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let width = 0, height = 0, particles = [];
+      const heartCount = () => Math.min(70, Math.max(28, Math.floor(window.innerWidth / 17)));
+
+      function resize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, window.innerWidth < 600 ? 1.5 : 2);
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        const target = reducedMotion ? 14 : heartCount();
+        while (particles.length < target) particles.push(makeHeart(true));
+        particles.length = target;
+      }
+
+      function makeHeart(randomY = false) {
+        return {
+          x: Math.random() * Math.max(1, width),
+          y: randomY ? Math.random() * Math.max(1, height) : -30 - Math.random() * 80,
+          size: 5 + Math.random() * 13,
+          speed: reducedMotion ? 0 : .25 + Math.random() * .85,
+          drift: (Math.random() - .5) * .45,
+          alpha: .24 + Math.random() * .62,
+          phase: Math.random() * Math.PI * 2,
+          glow: 8 + Math.random() * 15
+        };
+      }
+
+      function drawHeart(p, time) {
+        const pulse = 1 + Math.sin(time * .0015 + p.phase) * .08;
+        const s = p.size * pulse;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.scale(s / 20, s / 20);
+        ctx.globalAlpha = p.alpha;
+        ctx.shadowBlur = p.glow;
+        ctx.shadowColor = '#168bff';
+        const grad = ctx.createLinearGradient(-8, -10, 9, 12);
+        grad.addColorStop(0, '#d5f8ff');
+        grad.addColorStop(.42, '#4dbbff');
+        grad.addColorStop(1, '#1264ff');
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.moveTo(0, 7);
+        ctx.bezierCurveTo(-3, 4, -10, 0, -10, -5);
+        ctx.bezierCurveTo(-10, -11, -2, -12, 0, -6);
+        ctx.bezierCurveTo(3, -12, 10, -11, 10, -5);
+        ctx.bezierCurveTo(10, 0, 3, 4, 0, 7);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+      }
+
+      function animate(time) {
+        ctx.clearRect(0, 0, width, height);
+        for (const p of particles) {
+          drawHeart(p, time);
+          if (!reducedMotion) {
+            p.y += p.speed;
+            p.x += p.drift + Math.sin(time * .0005 + p.phase) * .22;
+            if (p.y > height + 35) {
+              p.y = -25;
+              p.x = Math.random() * width;
+            }
+            if (p.x < -30) p.x = width + 20;
+            if (p.x > width + 30) p.x = -20;
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+
+      window.addEventListener('resize', resize);
+      resize();
+      requestAnimationFrame(animate);
+
+      const btn = document.getElementById('revealBtn');
+      const wish = document.getElementById('hiddenWish');
+      const card = document.getElementById('digitalCard');
+      btn.addEventListener('click', () => {
+        const isOpen = wish.classList.toggle('show');
+        card.classList.toggle('open', isOpen);
+        btn.innerHTML = isOpen ? 'Your wish is open <span aria-hidden="true">♥</span>' : 'Open your birthday card <span aria-hidden="true">✧</span>';
+        if (isOpen) {
+          for (let i = 0; i < 10; i++) {
+            const p = makeHeart(false);
+            p.x = width * (.25 + Math.random() * .5);
+            p.y = height * (.25 + Math.random() * .5);
+            p.size = 8 + Math.random() * 13;
+            p.alpha = .9;
+            p.speed = .45 + Math.random() * .8;
+            particles.push(p);
+          }
+          particles = particles.slice(-Math.min(80, heartCount() + 10));
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
